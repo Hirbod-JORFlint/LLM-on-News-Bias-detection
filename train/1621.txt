@@ -1,0 +1,28 @@
+Title: Report: Over 80 Million Children at Risk as Coronavirus Disrupts Vaccination Schedules
+
+Spotlight: Tens of millions of children under 12 months are potentially at risk for diseases such as diphtheria and polio as the Chinese coronavirus pandemic interrupts routine vaccinations, according to data published by global public health experts on Friday.
+
+Content Text:
+STAT News reports:
+Vaccine campaigns have been disrupted in at least 68 countries, according to data released by the World Health Organization, UNICEF, the Sabin Vaccine Institute, and Gavi, the Vaccine Alliance. The interruptions could affect 80 million children under 1 year old in those countries.
+The agencies said that the disruptions are occurring at a scale unseen since widespread immunization campaigns began in the 1970s. The countries reported at least moderate interruptions to the programs, with some countries suspending their programs completely. The organizations said 27 countries have postponed campaigns of vaccinations that protect against measles, while more than a dozen have paused some polio vaccination programs.
+Dr. Tedros Adhanom Ghebreyesus, head of the World Health Organization (WHO), said in a statement:
+Immunization is one of the most powerful and fundamental disease prevention tools in the history of public health. Disruption to immunization programs from the Covid-19 pandemic threatens to unwind decades of progress against vaccine-preventable diseases like measles.
+Public health experts are urging immunization programs remain operational to both ensure children are protected against current illnesses and are ready to distribute coronavirus vaccines if they become readily available.
+Gavi CEO Seth Berkley said in a statement:
+More children in more countries are now protected against more vaccine-preventable diseases than at any point in history,” Gavi CEO Seth Berkley said in a statement. Due to Covid-19, this immense progress is now under threat, risking the resurgence of diseases like measles and polio. Not only will maintaining immunization programs prevent more outbreaks, it will also ensure we have the infrastructure we need to roll out an eventual Covid-19 vaccine on a global scale.
+Due to the pandemic, polio and measles vaccination campaigns have been heavily impacted, with the former having been halted in 27 countries. Conversely, polio campaigns have been halted in 38 nations.
+On Wednesday, New York City Mayor Bill de Blasio (D) warned that administered vaccines have plummeted 63 percent for children in the Big Apple in the last year.
+Two new studies offer hope for an effective coronavirus vaccine — and for the notion that prior infection also confers immunity.
+Both studies were conducted on rhesus macaque monkeys, so testing on humans is required for more definitive proof. But in one study, monkeys developed immunity against the new SARS-CoV-2 coronavirus after receiving experimental vaccines.
+“Our findings increase optimism that the development of COVID-19 vaccines will be possible,” said lead researcher Dr. Dan Barouch. He directs the Center for Virology and Vaccine Research at Beth Israel Deaconess Medical Center in Boston.
+As part of the new research, macaques were given experimental coronavirus vaccines that expressed six different forms of the SARS-CoV-2 spike protein, a structure on the virus’ surface that it uses to bind with and invade human cells.
+The vaccines provide DNA that enables host cells to make the spike protein, so that they can then generate antibody responses to it. In this way, the immune system is trained to recognize coronavirus and quickly respond to it if it appears.
+The vaccines were given to 25 adult macaques in initial vaccinations and also in follow-up boost immunizations. Another ten monkeys got a sham vaccine.
+All of the macaques were infected with the new coronavirus six weeks after vaccination, and those that had received the real vaccines produced levels of antibodies in their blood that were high enough to neutralize the virus within two weeks.
+In fact, eight of the 25 vaccinated monkeys showed no detectable virus at any point following exposure to SARS-CoV-2, and the other vaccinated animals showed only low viral loads, the researchers reported in the March 20 issue of the journal Science.
+In all cases, as the production of immune system antibodies rose, viral load declined. That suggests that there’s a direct correlation between the two — an important factor to consider as vaccine development goes forward, the researchers said.
+In another important finding, a second study conducted by the same team found that monkeys who were infected with the new coronavirus developed immunity.
+In that research, nine adult macaques were infected with the virus, but then cleared it from their bodies when they were re-exposed to it 35 days later. All nine also had few or no symptoms after re-exposure and had immune responses that appeared to protect them against a second infection.
+Further research is needed to find out how long this natural immunity lasts, the study authors noted.
+The UPI contributed to this report. 

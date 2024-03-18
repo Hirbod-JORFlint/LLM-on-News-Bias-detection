@@ -1,0 +1,21 @@
+
+
+        'An act of mass surveillance': India's use of facial recognition tech against protesters angers privacy advocates
+    
+Privacy advocates on Monday raised concerns over reports that Indian security forces used facial recognition technology to identify dissidents at a political rally in December and warned that if left unchecked the government would continue to suppress dissent.
+"The use of the system for profiling and surveillance at public congregations is illegal and unconstitutional," digital advocacy group Internet Freedom Foundation executive director Apar Gupta told The Independent. "It is an act of mass surveillance."
+
+Internet Freedom Foundation on Sunday called for "a complete halt and recall" on police use of facial recognition.
+The technology was reportedly used on December 22 to screen attendees at a rally for Prime Minister Narendra Modi. A police spokesperson described the identification process to The Indian Express, which broke the story on Saturday.
+"Each attendee at the rally was caught on camera at the metal detector gate and live feed from there was matched with the facial dataset within five seconds at the control room set up at the venue," the spokesperson said.
+
+
+
+Such police use of facial recognition systems is not what the government ostensibly developed the resource for, political theorist Madhav Khosla explained at The Guardian Saturday, though the news of police using the technology for targeting dissent is unsurprising:
+Automated facial recognition systems have been used to identify and to exclude protesters, based on earlier protest videos taped by police. The software used was originally developed to trace missing children. It is now being deployed to act against individuals, thereby not merely preventing them from protesting but doing so without any establishment of guilt. This year, the government issued a tender for an automated facial recognition system on a nationwide basis, whose end date has been extended five times. This is despite the absence of any clear legal framework to guide the use of such technology. The tender explicitly notes the benefits of the technology for crime prevention but omits any reference to privacy or sensitisation.
+Concerns over the application of India's National Automated Facial Recognition System (AFRS) on dissidents hinge on the centralization of information in the database.
+As Common Dreams reported, India's crackdown on protest this month in the country over a citizenship bill stripping rights from the country's 200 million-strong Muslim minority has led observers like famed author and dissident Arundhati Roy to call the current moment "the biggest challenge since independence."
+Madras Courier editor-in-chief Shrenik Rao on December 24 warned that the country is becoming a "brutal authoritarian state":
+...
+After their Bharatiya Janata Party's landslide victory in 2019, Modi and Amit Shah have pushed through - bulldozed - legislation in an authoritarian manner, suppressed dissenting voices with brutal state force, and locked up political opponents.
+"India's transformation into a police state becomes more real each day," tweeted Johns Hopkins University professor Steve Hanke. "Modi and BJP's radical Hindutva politics and complete disregard for freedom are to blame."

@@ -1,0 +1,18 @@
+Title: Report: Vaccine, Successful Treatment for Coronavirus Still Many Months Away
+
+Spotlight: As health officials around the globe work to stop the spread of the coronavirus, drug and diagnosis companies are working on ways to combat the virus that has killed 362 people in China, where it originated.
+
+Content Text:
+But the effort won’t provide a quick fix for this particular virus because of the time required for the process to go from the research and development phase to healthcare providers and patients.
+The Motley Fool noted that while there are “hundreds of drugmakers and diagnosis companies” announcing their work on the coronavirus, only three best represent this sector of the public health battle. 
+The first is Gilead Sciences, which is working on a potential antiviral treatment:
+In the U.S., a patient with worsening symptoms of a confirmed 2019-nCoV infection has been treated with an experimental antiviral from Gilead Sciences called remdesivir. Gilead’s experimental antiviral appeared effective based on a throat swab that tested negative for the virus just a few days after receiving the infusion. It’s important to understand that Gilead is developing remdesivir to combat the Ebola virus, not 2019-nCoV. Success from a single patient is great news, but there are still a lot of important ins and outs left to consider here. To produce some evidence of efficacy governments can use to make public health decisions, Gilead is working with Chinese authorities to begin a controlled, randomized study. No matter how hard they step on the gas, though, it will take months to produce the necessary data.
+The second is Moderna, which is working on a vaccine:
+While Gilead works on a potential treatment for 2019-nCoV, a much younger company is developing a vaccine to prevent the coronavirus from spreading in the first place. Although Moderna doesn’t have many accomplishments to date, the Coalition for Epidemic Preparedness Innovations has agreed to fund the manufacturing of a 2019-nCoV vaccine that uses the company’s proprietary messenger RNA (mRNA) platform. In a nutshell, Moderna’s vaccine should instruct a healthy patient’s cells to produce proteins that serve as wanted posters that help the immune system recognize infected cells. Moderna’s potential 2019-nCoV vaccine presents an elegant solution to a difficult problem, but there are still a lot of unanswered questions.
+Roche is working on rapid screening diagnostics:
+Global pharmaceutical and diagnostics giant Roche has already developed a test that can tell whether or not someone has a 2019-nCoV infection within a couple of hours. Roche’s coronavirus test hasn’t been approved for marketing yet, but the need for screening is serious enough to take the risk. A relatively fast 2019-nCoV diagnostic will help prevent infected patients who aren’t presenting obvious symptoms from spreading the virus to their healthy families and coworkers. Unfortunately, emergency border closures have made it hard to deliver all the equipment needed to use Roche’s coronavirus assays.
+The Motley Fool noted in its report that Roche might add to the $63.8 billion it earned last year by selling some of its equipment to Chinese hospitals.
+As for Moderna’s vaccine, “it will be more than a year before we know if Moderna can produce a 2019-nCoV vaccine worth manufacturing,” the Motley Fool reported.
+The fate of Gilead’s antiviral is also still up in the air.
+“There’s a chance Gilead’s antiviral could find a home as a treatment for 2019-nCoV because coronaviruses behave much differently than Ebola and the rest of the filovirus family,” the article states. “It’s probably best to wait for more evidence before getting too excited.”
+Follow Penny Starr on Twitter.

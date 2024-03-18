@@ -1,0 +1,61 @@
+Title: Thousands of foreign students in U.S. on student visas may have 'worked' for fake companies
+
+Spotlight: F-1 visas let foreign students stay in the U.S. to work after graduating. Most use the program legally, but recent probes have revealed fraud.
+
+Content Text:
+WASHINGTON — A federal visa program allowing international students to work at firms in the United States after graduation appears to have been exploited by fake companies providing false employment verifications, according to an NBC News/NBC Bay Area investigation.
+The F-1 visa program includes a component that allows students to stay in the U.S. to get practical work experience after obtaining their professional degrees. Many students, schools and employers use the program legitimately, as intended. But a recent federal prosecution revealed the potential for fraud, with a defendant admitting in court papers she had provided false employment records for nearly 2,700 students.
+To understand the F-1 student visa program, it's helpful to see how it's supposed to work.
+Fawaz Alshatti is a Kuwaiti national who came to the U.S. to study and has stayed to work as an architectural engineer.
+"I decided to get some more experience and work in the U.S.," he said from his job at TK Architects in Kansas City, Missouri.
+The company specializes in entertainment projects. Alshatti helps design systems for movie theaters, bowling alleys, restaurants and bars.
+"It provided me with a great opportunity to work with people in this country and to gain such experience in a different work environment," he said.
+He legally entered the U.S. as an international student after obtaining an F-1 student visa. Once he graduated, he applied to the visa's "Optional Practical Training" program, or OPT. It allows international students to work in the U.S. after getting their degrees for a period of 12-36 months.
+His employer said the program is invaluable.
+"Having international staff is a big benefit for us — both in terms of language (and) culture," Jack Muffoletto, who runs TK Architects, said. "It helps tremendously."
+Alshatti got his undergraduate and two master's degrees from the University of Kansas, where he applied for the OPT program in June 2018, 60 days before the end of his study. Government regulations allow a narrow window for applying: from 90 days before the end of a student's study program to 60 days after.
+Alshatti said the university was helpful throughout the application process. It has an office that provides support services to international students, advising them about immigration and study and work visa requirements.
+He also said the university's advisers were strict about checking that students followed all the rules and requirements. "They will contact maybe your employer, behind your back basically, that you don't actually know," he said. "And then they'll make sure that you're actually doing what you're supposed to do. And you're actually doing something within your field, not even something outside your field."
+The university is a big participant in the F-1 OPT program. As of last month, of the 2,040 KU students who have active F-1 visa records, 330 have requested or obtained OPT authorizations.
+"It's extraordinarily important," Charles Bankart, KU's associate vice provost for international affairs, said. "One of the things that an institution — especially public institutions as a whole — really pride themselves on and focus upon is career readiness. And we do a lot on campus over the course of a student's time here to expose them to experiential learning opportunities."
+Bankart said employers were struck by how OPT students bring a fresh cultural perspective into the workplace.
+"It's one thing to train as an engineer or as an architect or a sociologist," he said. "It's another thing to have a deeply informed cultural context there."
+While the OPT program draws rave reviews from some employers and universities, a joint investigation by NBC News and KNTV — NBC's Bay Area station — found that some of the companies on the government's list of top OPT employers appear to be illegitimate.
+The list of top employers, prepared and released by the Department of Homeland Security's Student and Exchange Visitor Program (SEVP), includes familiar names: Amazon, Google, Microsoft.
+But then, there's one that's not so well-known: "Findream, LLC."
+In fact, Findream's founder, a woman named Weiyun "Kelly" Huang, was charged with criminal fraud in federal court in Illinois.
+According to court documents, Findream's alleged purpose was "false verifications of employment" for Chinese F-1 visa holders seeking work employment "via the OPT program."
+An affidavit prepared by an FBI special agent alleges that a website associated with Findream described the OPT opportunity to prospective students as "pretend' work." If a document submission is "well-prepared," the website said, "it will look real" and the U.S. government "will think your status is legal."
+The FBI visited the company's listed office in Chicago and found it was bogus. It was "a company on paper only," according to court documents.
+At a change of plea hearing Dec. 20, Huang, a Chinese national, changed her plea to guilty on one count of conspiracy to commit visa fraud.
+Court records show Huang also agreed to plead guilty on behalf of the two entities that were co-defendants in the case, Findream, LLC and Sinocontech, LLC.
+Huang admitted she and/or her co-conspirators submitted government forms falsely stating students were employed by the two entities.
+The plea agreement states that between 2013 and 2019, "defendant falsely and fraudulently represented" that almost 2,700 F-1 visa holders in the U.S. were employed by Findream or Sinocontech, and that Huang and the two firms got about $1.5 million from their customers, creating "a profit or gain of at least approximately $800,000."
+Huang faces a maximum five years in prison and a fine of up to $250,000. She is scheduled to be sentenced March 20.
+Along with many other schools, the University of Kansas was fooled by Findream. After learning of the federal indictment, the university found seven students who'd reported Findream LLC as an employer.
+Charles Bankart, the KU official, said everything seemed legitimate — and that it was "impossible" for schools to police this.
+"You look at the documentation (and) everything is there," he said. "All the boxes are checked. And the students acted in good faith. This was a registered organization…That's not the student's fault. That's not the institution's fault. That's not the government's fault. That's a crook."
+Over several months, NBC News and KNTV searched for some of the other companies on the list. Several were hard to find. For example: Tellon Trading had incorporation records in the state of Georgia. But NBC News visited five addresses listed in those documents and found no sign of Tellon.
+In California, investigative reporter Stephen Stock of KNTV picked up the trail — and couldn't find the company either.
+The Student and Exchange Visitor Program recently revamped the methodology it uses to generate data on international students. It provided NBC News a preliminary look at the new data. In 2017, Tellon employed 877 OPT participants, compared to 647 in 2018. In 2017, Findream employed 500 OPT participants, compared to 312 in 2018.
+According to government officials, the majority of OPT participants were only employed at Findream for a very short time, listing Findream as an employer for up to 14 days. It's likely, these officials say, that these students never worked for Findream, but may have initially listed it as their employer while they tried to obtain legitimate OPT employment.
+Still, supporters of the OPT program argue that the number of students employed by questionable companies is a very small percentage of the total number of students participating in the program.
+According to SEVP data, 204,633 students participated in OPT in 2017, and 200,162 did so in 2018.
+"There's always people who want to exploit legal immigration," Rachel Canty, SEVP director, said.
+SEVP, which is part of DHS' National Security Investigations Division, administratively oversees the international student visa programs, including the F-1 visa program and its OPT component. It uses the Student and Exchange Visitor Information System (SEVIS) to track and monitor students, schools and employers.
+Canty insisted the agency's systems of checks were working and said there were criminal investigations and convictions.
+"We do a lot of back-end data analytics once we have the list of companies where people are working. We work with our partners to identify those [where] there may be issues," Canty said.
+"We have criminal investigations and convictions all the time," she added.
+In November, U.S. Immigration and Customs Enforcement reported that an undercover probe had resulted in the arrest of about 250 foreign students. Many had been studying in the U.S. on F-1 visas through a program called "Curricular Practical Training," or CPT. The students had enrolled at the University of Farmington near Detroit, despite knowing it was a fake school without classes or teachers. The students were unaware federal investigators had created the school as part of a sting operation.
+Undercover video released by ICE in December shows several students agreeing to pay the University of Farmington to enroll after being told directly that "it’s not legal."
+Canty also cited DHS' successful detection of three fictitious schools the U.S. Government Accountability Office had created and submitted fraudulent certification petitions for as part of a recent audit of SEVP's management of fraud risks.
+But that same audit found other potential fraud risks, including a backlog of reviews of participating schools and no training about potential fraud risks for school officials the program relies on to report potential fraud. In September, ICE issued new guidance.
+Officials at SEVP say they welcome scrutiny of potentially illegitimate companies, seeing it as a deterrent.
+They note that the number of F-1 visa students participating in the OPT program through both Findream, LLC and Tellon Trading has decreased.
+According to its new data: Tellon employed 877 OPT participants in 2017, and 647 OPT participants in 2018. Findream employed 500 OPT participants in 2017, and 312 OPT participants in 2018.
+The OPT program is drawing scrutiny on multiple fronts. More than 100 colleges have signed on to an amicus brief opposing a lawsuit that's trying to end the program. The lawsuit was brought by the Washington Alliance of Technology Workers. The labor union claims that the DHS overstepped its authority by creating OPT, which it argues essentially establishes a foreign guest-worker program without congressional approval. The colleges say ending OPT would hurt their ability to attract international students.
+But even supporters of international student visa programs say more needs to be done to address their vulnerabilities, not only fraud risks but also potential national security risks.
+Sen. Mark Warner, D-Va., vice chairman of the Senate Select Committee on Intelligence, warns that student visa programs pose potential national security risks, and that nations engaging in active foreign espionage to try and steal U.S. intellectual property, such as China, may be exploiting their vulnerabilities.
+"We need new tools to be able to figure out who are the individuals that control some of these phony companies, but we also need to make sure that we overall raise our game," Warner said. "I think [in] the Findream case, we need to sort through was this a one-off? Was this part of a pattern? One of the things that we've seen — from the FBI, which they've finally declassified — if you look at all the counterespionage cases that are currently open, over 90 percent of those cases involve China."
+Warner said this type of fraud is increasingly on Congress' radar.
+"We need the kind of anti-money-laundering, beneficial ownership legislation to become law so that we can penetrate to who actually owns these companies," he said.

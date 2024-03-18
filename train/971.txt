@@ -1,0 +1,30 @@
+
+
+        How the 'birth tourist' became Trump's latest bogeyman
+    
+This analysis was originally published by the Niskanen Center.
+In January, the Trump administration adopted a new rule that would establish the presumption that pregnant women visiting the United States are "birth tourists" — women whose primary intention in visiting the country is to get U.S. citizenship for their babies. While the new presumption is rebuttable, the burden of proof is on the applicant to prove that is not, in fact, her intention. It will undoubtedly make it more difficult for many women to visit the United States for legitimate reasons.
+So just how prevalent is "birth tourism"? The Center for Immigration Studies (CIS) estimated that there were approximately 33,000 "women who came to America specifically to have a child and then left once the child was born" between July 1, 2016, and July 1, 2017. That figure (or their similar estimate for an earlier year) found its way into the New York Times, the Washington Post, the BBC, and many other mainstream outlets.
+The trouble is, this figure is an egregious overestimate. There are good reasons to doubt CIS's method for estimating birth tourism in the first place. But if we are going to use CIS's proposed method, then we should think the number of birth tourists is less than 2,000.
+How did CIS arrive at 33,000?
+CIS arrived at the 33,000 figure in 5 steps:
+1. First, they used the Census Bureau's American Community Survey (ACS) to estimate the number of foreign-born women in the United States on July 1, 2017, who gave birth in the preceding 12 months.
+2. Second, they estimated the number of births to foreign-born mothers over the same interval using data from the Centers for Disease Control and Prevention, adjusting the CDC's annual figures for foreign-born mothers in 2016 and 2017 with the monthly variations in total birth rates.
+3. Third, they took the difference between the numbers from steps 1 and 2, reasoning that if the CDC figure is higher, it is because some mothers had left the country and were thus not counted in the census survey.
+4. Fourth, they used the ACS to determine what proportion of women in step 1 were U.S. citizens.
+5. Finally, they adjusted their estimate from step 3 downwards using the proportion found in step 4 to eliminate mothers who cannot possibly be birth tourists on account of being citizens.
+The values CIS reported on each step are summarized in the second column of the table below:
+CIS's reported valuesReplicating CIS's methodExcluding new mothers with at least 2 years of U.S. residence
+1. NACS854,896870,970870,970
+2. NCDC897,223897,223897,223
+3. N=NCDC-NACS51,327*26,25326,253
+4. ρ.35.36.93
+5. (1-ρ)N33,36316,845†1,811†
+* Note: 51,327 is the figure reported by CIS. The actual difference is 42,327, which would make the final estimate in the last row 27,512 rather than 33,363.
+†Also note: final estimates may not exactly equal (1-ρ)N for the reported value of ρ because of rounding
+What went wrong?
+Attempting to replicate CIS's calculations raised a number of issues. An arithmetical error was made in step 3, when they use 51,327 as the difference between 897,223 and 854,896; the correct difference is 42,327. While assuredly an honest mistake, this alone causes their final estimate of over 33,000 to be over 20 percent higher than what it would have otherwise been (27,513).
+In addition, I have been unable to replicate the number CIS gave as the ACS estimate for foreign-born mothers of children born between July 1st, 2016 and July 1st 2017. This is not necessarily a problem if CIS can provide more information that will allow us to replicate their ACS estimate. However, based on the existing information provided by CIS on the calculation, my analysis of ACS data finds 870,970 foreign-born women who gave birth in the preceding year, rather than 854,896. This would lead to a final estimate of 16,845, about half of CIS's reported estimate.
+Most importantly, the CIS estimate includes mothers who arrived in the United States long before they became pregnant. In fact, new mothers who CIS identifies as potential birth tourists had already been in the United States for 13 years, on average. The ACS shows that less than 40 percent of new mothers were citizens, the only basis CIS uses to exclude foreign-born mothers who are not birth tourists. But the ACS also reveals that over 90 percent had already been in the United States for at least two years — necessarily over a year before they became pregnant — and therefore cannot possibly be birth tourists. Excluding new mothers who are long-term residents of the United States would mean an estimate of fewer than 2,000 potential birth tourists, only about one-twentieth of CIS's figure.
+Inhibiting travel and commerce—not to mention making consular interviews deeply intrusive on a gendered basis—by imposing restrictions on pregnant women is an alarmist reaction to a small issue.
+Haley Hamblin is Niskanen immigration policy intern.
