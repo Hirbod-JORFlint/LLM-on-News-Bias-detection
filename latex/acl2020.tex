@@ -18,6 +18,8 @@
 \usepackage{latexsym}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{float}
+\usepackage{adjustbox}
 \renewcommand{\UrlFont}{\ttfamily\small}
 \usepackage{microtype}
 
@@ -165,6 +167,7 @@ In the first steps, the performance of models was tested using the most commonly
     \text{F1} = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
     $$
 \end{itemize}
+to enhance interpretation of model, the text embedding is extracted from a BERT-style model $bert-tiny$~\cite{iulia turc_chang_lee_toutanova_2019, bhargava_drozd_rogers_2021}. For this purpose, [CLS] token was chosen, which is an special token used for classification tasks in BERT~\cite{devlin_chang_lee_toutanova_2018}. After the extraction of text embeddings representing sentences, the t-Distributed Stochastic Neighbor Embedding (t-SNE) technique for visualizing high-dimensional data in two dimensional plot is employed~\cite{com_hinton_2008, arora_hu_kothari_2018}. Using the contextual embedding, the underlying structure is more insightful.
 \subsubsection{Interpretative Model Evaluation}
 In addition to the traditional metrics, a creative evaluation alternative is employed to provide a deeper understanding of the model’s performance. This alternative involves the use of the Anchors method for model interpretation.
 Essentially, The Anchors method is a technique that can explain individual predictions of black-box classification by discovering a rule that sufficiently “anchors” the prediction locally – such that changes to the rest of the feature values of the instance do not matter~\cite{ribeiro_2018_anchors}.
@@ -198,18 +201,6 @@ Considering the difference in the number of sentences within each dataset, they 
     \item \textbf{Random Guesser}:  The precision, recall, and F1-score are roughly equal for both classes, indicating that it’s equally likely to guess either class. The overall accuracy of 0.53 is close to 0.5, as you’d expect from random guessing. 
     \item \textbf{LogisticRegression}: This model has a higher precision, recall, and F1-score for both classes compared to the other two classifiers, indicating that it is doing a better job of identifying both classes. The overall accuracy of 0.63 means it is correct about 63\% of the time.
 \end{itemize}
-In these numbers, macro avg was selected as the default averaging scheme for the metrics(the full result is present in {'finetuning.ipynb'}). Please note that the results of these algorithms do not necessarily indicate the distribution of labels in the corresponding dataset, this is mainly due to randomized train/test split before applying the models.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{cm_SG1_random_guess.png}
-    \caption{confusion matrix belonging to the random guesses SG1[value 1 indicate bias]}
-    \label{fig:enter-label}
-\end{figure}
-The metrics from the two datasets show a consistent pattern. Additionally, according to logistic regression results it can be observed that the increase in the number of data in each group has a substantial effect on learning from data.
-On the other hand, the language model shows a very promising result for both SG1 and SG2 datasets. Regarding the SG1 dataset, the model exhibits an accuracy rate of 0.97 which is significantly better all the baselines, similarly, a recall of 0.94 suggests that the model identifies only 94\% of all True positive instances.
-In this context we need to improve the rate of correctly predicted bias labels, therefore we have to maximize accuracy and precision to enhance the overall correctness and lower the false positive rate.
-
 \begin{table*}[h]
 \caption{Baselines macro avg results across datasets}
 \small
@@ -224,7 +215,73 @@ Random Guesser                                           & 0.53                 
 Logistic Regression                                      & 0.71                                                   & 0.71                                                    & 0.71                                                 & 0.71 & SG2    
 \end{tabular}
 \end{table*}
+In these numbers, macro avg was selected as the default averaging scheme for the metrics(the full result is present in {'finetuning.ipynb'}). Please note that the results of these algorithms do not necessarily indicate the distribution of labels in the corresponding dataset, this is mainly due to randomized train/test split before applying the models.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{cm_SG1_random_guess.png}
+    \caption{confusion matrix belonging to the random guesses SG1[value 1 indicate bias]}
+    \label{fig:enter-label}
+\end{figure}
+The metrics from the two datasets show a consistent pattern. Additionally, according to logistic regression results it can be observed that the increase in the number of data in each group has a substantial effect on learning from data.
+On the other hand, the language model shows a very promising result for both SG1 and SG2 datasets. Regarding the SG1 dataset, the model exhibits an accuracy rate of 0.97 which is significantly better all the baselines, similarly, a recall of 0.94 suggests that the model identifies only 94\% of all True positive instances.\\
+To better understand the dataset, using the $bert-tiny$ model, the embeddings was extracted and visualized through t-SNE. Figure ~\ref{fig:t-sne_logic} and Figure ~\ref{fig:t-sne_RoBERTa} show the assigned labels to sentences by Logistic regression and RoBERTa model respectively.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Labels_Logistic_tsne_plot.png}
+    \caption{low dimensional representation of data with Logistic Regression labels[value 1 indicate bias]}
+    \label{fig:t-sne_logic}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Labels_RoBERTa_tsne_plot.png}
+    \caption{low dimensional representation of data with RoBERTa labels[value 1 indicate bias]}
+    \label{fig:t-sne_RoBERTa}
+\end{figure}
+
+And if we divide the data into five regions we can see the distribution of misclassified biases are not exactly equal(Figure \ref{fig:t-sne_logic_re} and Figure \ref{fig:t-sne_RoBERTa_re})
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Labels_Logistic_tsne_plot_re.png}
+    \caption{low dimensional representation of data with Logistic Regression labels with regions[value 1 indicate bias]}
+    \label{fig:t-sne_logic_re}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Labels_RoBERTa_tsne_plot_re.png}
+    \caption{low dimensional representation of data with RoBERTa labels with regions[value 1 indicate bias]}
+    \label{fig:t-sne_RoBERTa_re}
+\end{figure}
+According to table \ref{tab:mscount} we can see that region 5 has the least misclassified items, ten sentences from region are:
+\begin{enumerate}
+  \item Sentence 1(TrueL 1): A tear slipped down the cheek of Ghanaian-German artist Zohra Opoku ...
+  \item Sentence 2(TrueL 0): After all, America’s commander-in-chief does have the authority, at his sole discretion ...
+  \item Sentence 3(TrueL 1): As the president spoke about doing “a lot” to address ...
+  \item Sentence 4(TrueL 1): As the senators’ letter pointed out this week ...
+  \item Sentence 5(TrueL 0): Authoritarianism experts who worried about Trump’s tendencies during ...
+  \item Sentence 6(TrueL 1): Collins, often described as a “moderate,” is not a far-right wingnut ...
+  \item Sentence 7(TrueL 1): Despite encouraging and supporting unrest, Ocasio-Cortez simultaneously advises ...
+  \item Sentence 8(TrueL 1): During July’s debate, Sanders again stated that people will “pay more in taxes” but ...
+  \item Sentence 9(TrueL 0): Gwyneth Paltrow’s anti-vaxxer ally comes under fire ...
+  \item Sentence 10(TrueL 1): Harry Potter creator J.K. Rowling released a lengthy essay.
+\end{enumerate}
+
+\begin{table}[h]
+\centering
+\caption{Distribution of Misclassified objected for RoBERTa across regions(coordinates rounded to 2 digits)}
+\label{tab:mscount}
+\begin{adjustbox}{width=0.9\linewidth,center}
+\begin{tabular}{cccc}
+\hline
+\multicolumn{1}{|c|}{\textbf{Region}} & \multicolumn{1}{l|}{\textbf{X axis range}} & \multicolumn{1}{l|}{\textbf{Y axis range}} & \multicolumn{1}{l|}{\textbf{Misclassification count}} \\ \hline
+1                                     & {[}4.60,61.97{]}                           & {[}-24.17,28.35{]}                         & 40                                                    \\
+2                                     & {[}-61.18,-9.51{]}                         & {[}-20.92,39.71{]}                         & 47                                                    \\
+3                                     & {[}-27.28,38.75{]}                         & {[}3.61,61.53{]}                           & 47                                                    \\
+4                                     & {[}-44.85,7.96{]}                          & {[}-5360,6.24{]}                           & 38                                                    \\
+5                                     & {[}-1.11,50.17{]}                          & {[}-54.06,-11.88{]}                        & 26                                                   
+\end{tabular}
+\end{adjustbox}
+\end{table}
 \begin{table*}[h]
 \caption{language model performance metrics}
 \centering
@@ -234,6 +291,11 @@ Loss & \multicolumn{1}{l}{Accuracy} & \multicolumn{1}{l}{Precision} & \multicolu
 0.19 & 0.94                         & 0.95                          & 0.92                       & 0.94                         & 0.94                            & SG2                        
 \end{tabular}
 \end{table*}
+In this context we need to improve the rate of correctly predicted bias labels, therefore we have to maximize accuracy and precision to enhance the overall correctness and lower the false positive rate.\\
+
+
+
+
 \subsection{Interpretative Model Evaluation}
 In this section, the model is evaluated using a variety of text among the extracted data from news articles. Here are six chosen examples from the SG2 dataset that demonstrate the model capabilities:
 \begin{itemize}
@@ -251,7 +313,7 @@ In addition to traditional evaluation metrics, an interpretative evaluation stra
 
 Regarding the limitations of this work, firstly, despite the effectiveness of RoBERTa model in bias identification, the model the training process was computationally expensive due to the complexity of the model, potentially limiting its accessibility.\\
 Secondly, for the sampling step of anchor $en_core_web_md$ model from spaCy was used. Larger models(such as $en_core_web_lg$) have more parameters and potentially richer word vectors, which might lead to different perturbations being generated during the sampling process, this could be a potential direction for future improvements.\\
-Lastly, the original labels annotated by experts was categorized to 'Biased', 'Non-Biased', and 'No agreement'. The third class indicates uncertainty or lack of consensus among experts, which could introduce additional noise; Therefore to improve consistency the labels from the third class were removed before the finetuning process. This is not problematic due to the very small population of this class, a more sophisticated approach would be to employ consensus-building techniques among experts to resolve disagreements before labeling.\\
+Lastly, the original labels annotated by experts was categorized to 'Biased', 'Non-Biased', and 'No agreement'. The third class indicates uncertainty or lack of consensus among experts, which could introduce additional noise; Therefore to improve consistency the labels from the third class were removed before the finetuning process. A more sophisticated approach would be to employ consensus-building techniques among experts to resolve disagreements before labeling.\\
 Additionally, another research direction for this project would be to look more into the interpretation of the model's behavior including the use of other model-agnostic methods.
 
 Overall, this project demonstrates the potential of transformer-based models like RoBERTa in the task of media bias classification. It also highlights the importance of interpretability in machine learning, showing how methods like Anchors can prove valuable. The provided mode can help readers and journalists understand and check for biases, contributing to more informed public discourse.
