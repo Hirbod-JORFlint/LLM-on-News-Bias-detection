@@ -22,7 +22,7 @@
 \usepackage{adjustbox}
 \renewcommand{\UrlFont}{\ttfamily\small}
 \usepackage{microtype}
-
+\usepackage{pdflscape}
 \aclfinalcopy
 
 %\setlength\titlebox{5cm}
@@ -42,8 +42,8 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-In this study, a machine learning approach is developed to detect and measure bias in news articles. The methodology involves fine-tuning a language model specifically for the task of bias classification. To ensure robustness, the model was trained using oversampling methods and it was tested in various random states. The model achieved an amazing precision of 100\% and 94.94\% for SG1 and SG2 datasets respectively, ultimately aiming to minimize False Positive results in classifying biases.\\
-Additionally, the model scored very high F1 scores on both datasets, ensuring the balance between precision and recall measures. The project categorizes bias into three types: distortion, content, and decision-making biases, and discusses their impact on media and democracy. The successful implementation of this project could lead to the development of tools that enable readers and journalists to better understand and check for biases, thereby contributing to a more informed and balanced public discourse.\\
+In this study, a machine learning approach is developed to detect and measure bias in news articles. The methodology involves fine-tuning a language model specifically for the task of bias classification. To ensure robustness, the model was also trained with and without oversampling method and it was tested in various random states. The model achieved a good precision of 84\% and 83\% for SG1 and SG2 datasets, respectively, ultimately aiming to minimize False Positive results in classifying biases.\\
+Additionally, the model scored high F1 scores on both datasets compared to best baselines (63\% on SG1 and 71\% on SG2), ensuring the balance between precision and recall measures. The project categorizes bias into three types: distortion, content, and decision-making biases, and discusses their impact on media and democracy. The successful implementation of this project could lead to the development of tools that enable readers and journalists to better understand and check for biases, thereby contributing to a more informed and balanced public discourse.\\
 The paper provides a comprehensive discussion of the models used, the data collected, the evaluation methods employed, and the results obtained, offering an alternative to automated bias detection in journalism.
 \end{abstract}
 
@@ -51,9 +51,9 @@ The paper provides a comprehensive discussion of the models used, the data colle
 
 In the era of information overload, the ability to discern bias in news articles is more critical than ever. This research project aims to develop an innovative, machine learning-based approach to identify and quantify bias in news articles. The proposed methodology will involve using natural language processing techniques to analyze the linguistic patterns in the text, which often indicate a certain bias. The project contains two stages which are comprised of 1- fine-tuning a language model for the classification task of labeling the news article text and 2- evaluating the model through two methodologies. 
 
-This project, if successful, has significant implications for the field of journalism. It can provide a tool for readers to better understand the biases in the news they consume, and for journalists and editors to more effectively check their work for unintentional bias. Ultimately, this could contribute to a more informed and discerning public discourse.
+This project, if successful, has significant implications for the field of journalism. It can provide a tool for readers to understand better the biases in the news they consume, and for journalists and editors to more effectively check their work for unintentional bias. Ultimately, this could contribute to a more informed and discerning public discourse.
 The next sections of this project are as follows:
-Section two provides the necessary context and theoretical foundation for the study. It includes a literature review highlighting relevant previous work in the field of news bias, particularly the studies involving automated tools for this purpose. It also outlines the motivation for this study and states the research problem and objectives. Section three details the data, preprocessing steps, and the process of fine-tuning the RoBERTa model. It also explains the implementation of a 5-fold cross-validation strategy and the application of oversampling techniques. Section four presents the outcomes of the fine-tuning process and the performance of the model on the validation set. It includes detailed analysis and interpretation of the results, supported by appropriate statistical measures and visualizations. Any patterns, relationships, or trends observed in the results are highlighted and discussed. The final section wraps up the study by summarizing the key findings and their implications. It discusses the strengths and limitations of the current study, and how these findings contribute to the existing body of knowledge.
+Section two provides the necessary context and theoretical foundation for the study. It includes a literature review highlighting relevant previous work in the field of news bias, particularly the studies involving automated tools for this purpose. It also outlines the motivation for this study and states the research problem and objectives. Section three details the data, preprocessing steps, and the process of fine-tuning the RoBERTa model. It also explains the implementation of strategies and the application of oversampling techniques. Section four presents the outcomes of the fine-tuning process and the performance of the model on the validation set. It includes detailed analysis and interpretation of the results, supported by appropriate statistical measures and visualizations. Any patterns, relationships, or trends observed in the results are highlighted and discussed. The final section wraps up the study by summarizing the key findings and their implications. It discusses the strengths and limitations of the current study, and how these findings contribute to the existing body of knowledge.
 \section{Background}
 Bias, whether intentional or unintentional, can significantly influence public opinion and discourse. Understanding the background and implications of this issue is crucial to this research. 
 Essentially Bias can be categorized in many forms~\cite{mastrine_2019_how}, including:
@@ -144,6 +144,10 @@ The Baseline models used here include:
     \item \textbf{LogisticRegression}: Logistic Regression is a statistical model that uses logistic function to model binary variables. published the news article. This method calculates the probability of belonging to a class by learning from input. As a linear model, it is an effective solution to provide a baseline prediction of classes in the model.
 \end{itemize}
 The main methodology in this project follows the implementation as in ~\cite{spinde_2021_neural}. As the classifier RoBERTa~\cite{liu_2019_roberta} was implemented. RoBERTa is a variant of BERT which was trained on more data and for a longer amount of time. This model outperforms BERT and other state-of-the-art models on a variety of natural language processing tasks~\cite{a2020_overview}. The model was trained and evaluated on a Google Colab environment in several epochs through checkpointing. The specific hardware used in this project includes a V100 VRAM 16GB GPU and The default CPU, an Intel Xeon CPU with 2 vCPUs (virtual CPUs).
+
+\subsection{Adding extra layers}
+As a transformer-based model excelling at various NLP tasks, RoBERTa can capture the complex structure of the task. During the implementation of the model, a few additional layers were added to improve the base model's performance. The aim of this step is to improve the capability of the model by improving the identification of local patterns(Conv1D) and capturing long-term dependencies(GRU). The customized model with additional layers can be observed in \ref{fig:Custom_model_arch}.
+
 \subsection{Evaluation}
 The evaluation of the model is a crucial aspect of this project, essentially providing a measure to show the goodness of the model's performance in bias identification tasks. The evaluation is divided into two subsections: 1- Traditional Evaluation Metrics and 2- Interpretive Model Evaluation.
 
@@ -181,41 +185,62 @@ If the anchors identified in these new articles are similar to those found in th
 This section presents the results of the fine-tuning process applied to the RoBERTa language model for the task of media bias classification.
 \subsection{Model Fine-tuning}
 The RoBERTa model was fine-tuned using a train-validation-test approach. This method ensures that each fold of the dataset contains an equal proportion of each targeted class, providing a robust estimate of the model’s performance.
-\subsection{Handling Class Imbalance}
-The two datasets used in this project did not exhibit class imbalance, however, after data splitting it was noted that some classes were under-represented in the data. This could lead to a model that performs well on the majority class but poorly on the minority class.
+\subsection{investigating Class Imbalance}
+The two datasets used in this project did not exhibit class imbalance, This is evident by looking at the differences between the number of classes for dataset SG1 and SG2(54 and 53 respectively).
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\linewidth]{cm_SG1_cl.png}
-    \caption{confusion matrix for SG1 dataset with RoBERTa[value 1 indicate bias}
+    \caption{confusion matrix for SG1 dataset with RoBERTa after oversampling [value 1 indicate bias]}
     \label{fig:enter-label}
 \end{figure}
 
-To address this issue, an oversampling method was implemented within each fold during the training process. Oversampling involves randomly duplicating examples from the minority class in the training data to balance the class distribution. This ensures that the model is exposed to enough examples of each class during training, improving its ability to generalize to under-represented classes.
+Oversampling involves randomly duplicating examples from the minority class in the training data to balance the class distribution. Theoretically oversampling ensures the model is exposed to enough examples of each class during training, improving its ability to generalize to under-represented classes. \\
+However, due to the small difference in classes, oversampling did not manage to improve the classification and, at best managed to achieve a result similar to the original model. For the purpose of this comparison, some results are shown in \ref{tab:f1_SG_datasets}.
 
-After performing oversampling(please refer to Figure 3), the fine-tuned RoBERTa model was able to learn from a balanced representation of each class, leading to a more robust and reliable performance in the media bias classification task.
 \subsection{Traditional Evaluation Metrics}
 Considering the difference in the number of sentences within each dataset, they are analyzed separately, here is a brief summary of results from the SG1 dataset:
 \begin{itemize}
-    \item \textbf{Majority Class classifier}: It always predicts class 0. That’s why the recall for class 0 is 1.00 (it correctly identifies all instances of class 0), but the recall for class 1 is 0.00 (it fails to identify any instances of class 1). The overall accuracy of 0.54 indicates that 54\% of SG1 data belong to class 0.
-    \item \textbf{Random Guesser}:  The precision, recall, and F1-score are roughly equal for both classes, indicating that it’s equally likely to guess either class. The overall accuracy of 0.53 is close to 0.5, as you’d expect from random guessing. 
-    \item \textbf{LogisticRegression}: This model has a higher precision, recall, and F1-score for both classes compared to the other two classifiers, indicating that it is doing a better job of identifying both classes. The overall accuracy of 0.63 means it is correct about 63\% of the time.
+    \item \textbf{Majority Class classifier}: It always predicts class 0. That’s why the recall for class 0 is 1.00 (it correctly identifies all instances of class 0), but the recall for class 1 is 0.00 (it fails to identify any instances of class 1). The overall accuracy of 0.5387 indicates that approximately 54\% of SG1 data belong to class 0.
+    \item \textbf{Random Guesser}:  The precision, recall, and F1-score are roughly equal for both classes, indicating that it’s equally likely to guess either class. The overall accuracy of 0.5097(rounded at 4 digits) is close to 0.5, as you’d expect from random guessing. 
+    \item \textbf{LogisticRegression}: This model has higher precision, recall, and F1-score for both classes compared to the other two classifiers, indicating that it is doing a better job of identifying both classes. The overall accuracy of 0.6323 means it is correct about 63\% of the time.
 \end{itemize}
-\begin{table*}[h]
-\caption{Baselines macro avg results across datasets}
+\begin{table}[h]
 \small
 \centering
-\begin{tabular}{llllll}
-{\color[HTML]{000000} Model name} & {\color[HTML]{000000} Accuracy} & {\color[HTML]{000000} Precision} & {\color[HTML]{000000} Recall} & F1   & Dataset \\
-Majority Class                                           & 0.54                                                   & 0.27                                                    & 0.50                                                 & 0.35 & SG1     \\
-Random Guesser                                           & 0.53                                                   & 0.53                                                    & 0.53                                                 & 0.53 & SG1     \\
-Logistic Regression                                      & 0.63                                                   & 0.63                                                    & 0.63                                                 & 0.63 & SG1     \\
-Majority Class                                           & 0.51                                                   & 0.26                                                    & 0.50                                                 & 0.34 & SG2     \\
-Random Guesser                                           & 0.53                                                   & 0.53                                                    & 0.53                                                 & 0.53 & SG2     \\
-Logistic Regression                                      & 0.71                                                   & 0.71                                                    & 0.71                                                 & 0.71 & SG2    
+\caption{Comparison of weighted macro F1-Score for the two datasets and the corresponding models}
+\label{tab:f1_SG_datasets}
+\begin{tabular}{llll}
+\hline
+\multicolumn{1}{|l|}{\textbf{Dataset}} & \multicolumn{1}{l|}{\textbf{Oversampling}} & \multicolumn{1}{l|}{\textbf{Custom Model}} & \multicolumn{1}{l|}{\textbf{F1 Score}} \\ \hline
+SG1                                    & False                                      & True                                       & 0.8187                                 \\
+SG1                                    & False                                      & False                                      & 0.8049                                 \\
+SG1                                    & True                                       & True                                       & 0.8030                                 \\
+SG1                                    & True                                       & False                                      & 0.7935                                 \\
+SG2                                    & False                                      & True                                       & 0.8081                                 \\
+SG2                                    & False                                      & False                                      & 0.8148                                 \\
+SG2                                    & True                                       & True                                       & 0.7952                                 \\
+SG2                                    & True                                       & False                                      & 0.7971                                
 \end{tabular}
-\end{table*}
-In these numbers, macro avg was selected as the default averaging scheme for the metrics(the full result is present in {'finetuning.ipynb'}). Please note that the results of these algorithms do not necessarily indicate the distribution of labels in the corresponding dataset, this is mainly due to randomized train/test split before applying the models.
+\end{table}
+\begin{table}[H]
+\centering
+\caption{Baselines weighted average results across datasets}
+\label{tab:wei_SG_score}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llllll}
+\hline
+\multicolumn{1}{|l|}{\textbf{Model name}} & \multicolumn{1}{l|}{\textbf{Accuracy}} & \multicolumn{1}{l|}{\textbf{Precision}} & \multicolumn{1}{l|}{\textbf{Recall}} & \multicolumn{1}{l|}{\textbf{F1}} & \multicolumn{1}{l|}{\textbf{Dataset}} \\ \hline
+Majority Class                            & 0.5387                                 & 0.2902                                  & 0.5387                               & 0.3772                           & SG1                                   \\
+Random Guesser                            & 0.5097                                 & 0.5742                                  & 0.5097                               & 0.5102                           & SG1                                   \\
+Logistic Regression                       & 0.6323                                 & 0.6346                                  & 0.6323                               & 0.6328                           & SG1                                   \\
+Majority Class                            & 0.5116                                 & 0.2617                                  & 0.5116                               & 0.3463                           & SG2                                   \\
+Random Guesser                            & 0.5143                                 & 0.5143                                  & 0.5143                               & 0.5143                           & SG2                                   \\
+Logistic Regression                       & 0.7075                                 & 0.7082                                  & 0.7075                               & 0.7075                           & SG2                                  
+\end{tabular}
+}
+\end{table}
+In these numbers, weighted macro avg was selected as the default averaging scheme for the metrics(the full result is present in {'finetuning.ipynb'}). Please note that the results of these algorithms do not necessarily indicate the distribution of labels in the corresponding dataset, this is mainly due to randomized train/test split before applying the models.
 
 \begin{figure}
     \centering
@@ -224,8 +249,8 @@ In these numbers, macro avg was selected as the default averaging scheme for the
     \label{fig:enter-label}
 \end{figure}
 The metrics from the two datasets show a consistent pattern. Additionally, according to logistic regression results it can be observed that the increase in the number of data in each group has a substantial effect on learning from data.
-On the other hand, the language model shows a very promising result for both SG1 and SG2 datasets. Regarding the SG1 dataset, the model exhibits an accuracy rate of 0.97 which is significantly better all the baselines, similarly, a recall of 0.94 suggests that the model identifies only 94\% of all True positive instances.\\
-To better understand the dataset, using the $bert-tiny$ model, the embeddings was extracted and visualized through t-SNE. Figure ~\ref{fig:t-sne_logic} and Figure ~\ref{fig:t-sne_RoBERTa} show the assigned labels to sentences by Logistic regression and RoBERTa model respectively.
+On the other hand, the language model shows a very promising result for both SG1 and SG2 datasets. Regarding the SG1 dataset and the best rates, the model exhibits an accuracy rate of 0.82 which is significantly better than all the baselines, similarly, a recall of 0.78 in the best SG2 model suggests that the model identifies 78\% of all True positive instances.\\
+To better understand the dataset, using the $bert-tiny$ model, the embeddings were extracted and visualized through t-SNE. Figure ~\ref{fig:t-sne_logic} and Figure ~\ref{fig:t-sne_RoBERTa} show the assigned labels to sentences by Logistic regression and RoBERTa model respectively.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\linewidth]{Labels_Logistic_tsne_plot.png}
@@ -254,16 +279,16 @@ And if we divide the data into five regions we can see the distribution of miscl
 \end{figure}
 According to table \ref{tab:mscount} we can see that region 5 has the least misclassified items, ten sentences from region are:
 \begin{enumerate}
-  \item Sentence 1(TrueL 1): A tear slipped down the cheek of Ghanaian-German artist Zohra Opoku ...
-  \item Sentence 2(TrueL 0): After all, America’s commander-in-chief does have the authority, at his sole discretion ...
-  \item Sentence 3(TrueL 1): As the president spoke about doing “a lot” to address ...
-  \item Sentence 4(TrueL 1): As the senators’ letter pointed out this week ...
-  \item Sentence 5(TrueL 0): Authoritarianism experts who worried about Trump’s tendencies during ...
-  \item Sentence 6(TrueL 1): Collins, often described as a “moderate,” is not a far-right wingnut ...
-  \item Sentence 7(TrueL 1): Despite encouraging and supporting unrest, Ocasio-Cortez simultaneously advises ...
-  \item Sentence 8(TrueL 1): During July’s debate, Sanders again stated that people will “pay more in taxes” but ...
-  \item Sentence 9(TrueL 0): Gwyneth Paltrow’s anti-vaxxer ally comes under fire ...
-  \item Sentence 10(TrueL 1): Harry Potter creator J.K. Rowling released a lengthy essay.
+  \item Sentence 1(TrueL 1): A young, slender woman with a sign reading “End All Violence” stood at the doors and pleaded with the looters to stop.
+  \item Sentence 2(TrueL 1): As Congress begins debating the Equality Act, the Heritage Foundation warns that if the bill becomes ...
+  \item Sentence 3(TrueL 1): Bloomberg also supports passage of the Equality Act, which would bar governments and sports organizations from recognizing the biological/physiological difference between ...
+  \item Sentence 4(TrueL 0): Democrats and Republicans have long conflated “policing” with “public safety,” ...
+  \item Sentence 5(TrueL 0): Fake Political Media Eager Partners in Joe Biden’s Fake Press Conference
+  \item Sentence 6(TrueL 0): Fox News has gone so deep into white nationalism that Donald Trump now believes it’s how he’ll win in 2020
+  \item Sentence 7(TrueL 0): George Soros does not “own” ANTIFA or Black Lives Matter.
+  \item Sentence 8(TrueL 0): Graffiti alleging that the ‘MET POLICE SERVE TRUMP’ was also seen ...
+  \item Sentence 9(TrueL 0): In Haiti, President Bill Clinton admitted—after he left office—to a “devil’s bargain” on rice tariffs ...
+  \item Sentence 10(TrueL 1): In the dominant political fight in D.C., Donald Trump wants a giant wall along the U.S./Mexico border.
 \end{enumerate}
 
 \begin{table}[h]
@@ -274,49 +299,58 @@ According to table \ref{tab:mscount} we can see that region 5 has the least misc
 \begin{tabular}{cccc}
 \hline
 \multicolumn{1}{|c|}{\textbf{Region}} & \multicolumn{1}{l|}{\textbf{X axis range}} & \multicolumn{1}{l|}{\textbf{Y axis range}} & \multicolumn{1}{l|}{\textbf{Misclassification count}} \\ \hline
-1                                     & {[}4.60,61.97{]}                           & {[}-24.17,28.35{]}                         & 40                                                    \\
-2                                     & {[}-61.18,-9.51{]}                         & {[}-20.92,39.71{]}                         & 47                                                    \\
-3                                     & {[}-27.28,38.75{]}                         & {[}3.61,61.53{]}                           & 47                                                    \\
-4                                     & {[}-44.85,7.96{]}                          & {[}-5360,6.24{]}                           & 38                                                    \\
-5                                     & {[}-1.11,50.17{]}                          & {[}-54.06,-11.88{]}                        & 26                                                   
+1                                     & {[}3.01,59.51{]}                           & {[}-25.33,33.38{]}                         & 48                                                    \\
+2                                     & {[}-49.55,7.97{]}                          & {[}-56.19,7.68{]}                          & 54                                                    \\
+3                                     & {[}-63.08,-11.57{]}                        & {[}-24.42,43.03{]}                         & 38                                                    \\
+4                                     & {[}-5.64,51.42{]}                          & {[}-57.66,-11.89{]}                        & 31                                                    \\
+5                                     & {[}-29.60,37.11{]}                         & {[}4.86,63.54{]}                           & 74                                                   
 \end{tabular}
 \end{adjustbox}
 \end{table}
 \begin{table*}[h]
-\caption{language model performance metrics}
 \centering
+\caption{language model performance metrics according to the best models per datasets(rounded to two digits)}
+\label{tab:model_metric}
 \begin{tabular}{ccccccc}
-Loss & \multicolumn{1}{l}{Accuracy} & \multicolumn{1}{l}{Precision} & \multicolumn{1}{l}{Recall} & \multicolumn{1}{l}{Micro F1} & \multicolumn{1}{l}{Weighted F1} & \multicolumn{1}{l}{Dataset} \\
-0.08 & 0.97                         & 1                             & 0.94                       & 0.97                         & 0.97                            & SG1                         \\
-0.19 & 0.94                         & 0.95                          & 0.92                       & 0.94                         & 0.94                            & SG2                        
+\hline
+\multicolumn{1}{|c|}{\textbf{Loss}} & \multicolumn{1}{l|}{\textbf{Accuracy}} & \multicolumn{1}{l|}{\textbf{Precision}} & \multicolumn{1}{l|}{\textbf{Recall}} & \multicolumn{1}{l|}{\textbf{Micro F1}} & \multicolumn{1}{l|}{\textbf{Weighted F1}} & \multicolumn{1}{l|}{\textbf{Dataset}} \\ \hline
+1.29                                & 0.82                                   & 0.84                                    & 0.77                                 & 0.82                                   & 0.82                                      & SG1                                   \\
+1.17                                & 0.81                                   & 0.83                                    & 0.78                                 & 0.81                                   & 0.81                                      & SG2                                  
 \end{tabular}
 \end{table*}
 In this context we need to improve the rate of correctly predicted bias labels, therefore we have to maximize accuracy and precision to enhance the overall correctness and lower the false positive rate.\\
 
 
-
-
 \subsection{Interpretative Model Evaluation}
-In this section, the model is evaluated using a variety of text among the extracted data from news articles. Here are six chosen examples from the SG2 dataset that demonstrate the model capabilities:
+In this section, the model is evaluated using a variety of text among the extracted data from news articles. Here are six chosen examples from the SG2 dataset and others extracted from news articles that demonstrate the model's capabilities:
 \begin{itemize}
-    \item 'Civil rights activists across the United States for years have called for scaling back traditional policing, and the efforts have gained momentum...': This is an instance of Non-biased text, the model classifies it as Non-Biased, Anchors method chose 'protests', 'called', and 'gained' as the indicator for this decision
+    \item 'Civil rights activists across the United States for years have called for scaling back traditional policing, and the efforts have gained momentum...': This is an instance of Non-biased text, the model classifies it as Non-Biased, Anchors method chose 'called', 'protests', 'activists', 'death', 'scaling', and 'momentum' as the indicator for this decision
     \item 'An attorney for President Donald Trump on Friday blasted U.S. House Democrats’ request for six years of Trump’s tax returns as “a misguided attempt” to politicize...': This is an instance of Biased text. The experts identified the keyword 'blasted' as the indicator for bias, RoBERTa classified this sentence as Biased, and based on Anchors the decision is also based on the 'blasted' keyword.
-    \item 'Japan has reported about 1300 deaths from COVID-19 but new cases in Tokyo have fallen in the last few weeks': This instance was extracted from a news article. Based on the model prediction this is Non-Biased and the indicator is the keyword 'reported'. This is likely true since it is a factual text and presents information about the trend of new cases in Japan.
-    \item 'The idea of a "rigged" economy that both benefits and is shaped by the rich and powerful was a popular theme in 2016 and is sure to play a big role again this cycle...': This is a second instance extracted from news articles. The model predicted Non-Biased with Anchors indicators of {powerful, popular, emphasizing, big, several, idea, shaped, candidates, campaign, economy, rich, sure, rigged, ...}. After looking at the corresponding text, it is most likely a False Negative. This sentence offers a subjective viewpoint and uses the words 'Rigged', 'Rich', and 'powerful' to imply a negative view of the corresponding groups.
+    \item 'Japan has reported about 1300 deaths from COVID-19 but new cases in Tokyo have fallen in the last few weeks': This instance was extracted from a news article. Based on the model prediction this is Non-Biased and the indicator are the keywords 'fallen', 'few', and 'last'. This is likely true since it is a factual text and presents information about the trend of new cases in Japan.
+    \item 'The idea of a "rigged" economy that both benefits and is shaped by the rich and powerful was a popular theme in 2016 and is sure to play a big role again this cycle...': This is a second instance extracted from news articles. The model predicted Non-Biased with Anchors indicators of {big, idea, rich, theme, powerful, rigged, play, popular, campaign, ...}. After looking at the corresponding text, it is most likely a False Negative. This sentence offers a subjective viewpoint and uses the words 'Rigged', 'Rich', and 'powerful' to imply a negative view of the corresponding groups.
     \item 'As you know, this is a very high priority for the president, ending surprise medical bills': The model predicts this instance as Non-Biased and the anchor indicators are {very, surprise, medical, ...}. This is factual information, so it is True Positive.
-    \item 'The findings suggest childhood vaccination efforts nearly ground to a halt between March 13 — when the national emergency was declared — and April 19': The model predicted this text as Non-biased with the Anchors keyword of 'childhood'. This proved to be a True sentence after a web search.
+    \item 'The findings suggest childhood vaccination efforts nearly ground to a halt between March 13 — when the national emergency was declared — and April 19': The model predicted this text as Non-biased with the Anchors keywords of 'halt', 'efforts', 'declared', 'childhood', 'between'. This proved to be a True sentence after a web search.
 \end{itemize}
 \section{Conclusion and Discussion}
 This project aimed to classify media bias in news articles using a fine-tuned RoBERTa model and compare its performance with three baseline models. The results demonstrated the effectiveness of the RoBERTa model in this task greatly. As expected, the model performed better on the SG1 dataset due to a smaller overall amount of annotated sentences.
 
 In addition to traditional evaluation metrics, an interpretative evaluation strategy was employed to provide a deeper understanding of the model’s decision-making process. The Anchors method was used to identify the words that the model relied on most heavily to make its predictions, providing insight into what the model had learned and how it was making its decisions.
 
-Regarding the limitations of this work, firstly, despite the effectiveness of RoBERTa model in bias identification, the model the training process was computationally expensive due to the complexity of the model, potentially limiting its accessibility.\\
-Secondly, for the sampling step of anchor $en_core_web_md$ model from spaCy was used. Larger models(such as $en_core_web_lg$) have more parameters and potentially richer word vectors, which might lead to different perturbations being generated during the sampling process, this could be a potential direction for future improvements.\\
-Lastly, the original labels annotated by experts was categorized to 'Biased', 'Non-Biased', and 'No agreement'. The third class indicates uncertainty or lack of consensus among experts, which could introduce additional noise; Therefore to improve consistency the labels from the third class were removed before the finetuning process. A more sophisticated approach would be to employ consensus-building techniques among experts to resolve disagreements before labeling.\\
+Regarding the limitations of this work, firstly, despite the effectiveness of the RoBERTa model in bias identification, the model the training process was computationally expensive due to the complexity of the model, potentially limiting its accessibility.\\
+Secondly, for the sampling step of anchor, $en\_core\_web\_md$ model from spaCy was used. Larger models(such as $en\_core\_web\_lg$) have more parameters and potentially richer word vectors, which might lead to different perturbations being generated during the sampling process, this could be a potential direction for future improvements.\\
+Lastly, the original labels annotated by experts were categorized as 'Biased', 'Non-Biased', and 'No agreement'. The third class indicates uncertainty or lack of consensus among experts, which could introduce additional noise; Therefore to improve consistency the labels from the third class were removed before the finetuning process. A more sophisticated approach would be to employ consensus-building techniques among experts to resolve disagreements before labeling.\\
 Additionally, another research direction for this project would be to look more into the interpretation of the model's behavior including the use of other model-agnostic methods.
 
-Overall, this project demonstrates the potential of transformer-based models like RoBERTa in the task of media bias classification. It also highlights the importance of interpretability in machine learning, showing how methods like Anchors can prove valuable. The provided mode can help readers and journalists understand and check for biases, contributing to more informed public discourse.
+Overall, this project demonstrates the potential of transformer-based models like RoBERTa in media bias classification. It also highlights the importance of interpretability in machine learning, showing how methods like Anchors can prove valuable. The provided mode can help readers and journalists understand and check for biases, contributing to more informed public discourse.
+\newpage
+\begin{landscape}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{external_nn.png}
+        \caption{Custom model with additional layers}
+        \label{fig:Custom_model_arch}
+    \end{figure}
+\end{landscape}
 \newpage
 \bibliography{anthology,acl2020}
 \bibliographystyle{acl_natbib}
